@@ -111,17 +111,17 @@
       <!-- En Django se incluiría {% csrf_token %} -->
       <input type="text" name="username" placeholder="Usuario" required>
       <input type="password" name="password" placeholder="Contraseña" required>
-      <button type="button" onClick="redirect(event)">Ingresar</button>
+      <a href="./inicial.html"><button type="button">Ingresar</button></a>
     </form>
     <a href="/password-reset/" class="forgot-password">¿Olvidó su contraseña?</a>
   </div>
 
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     function redirect(event)
     {
       event.preventDefault();  
       window.location.href = "./inicial.html";
     }
-  </script>
+  </script> -->
 </body>
 </html>
