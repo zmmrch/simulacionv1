@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Prospectos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      margin: 0;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    .card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    .card .actions {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .card .actions button {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      background: #89c5c0;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .card .actions button:hover {
+      background: #c4e1de;
+    }
+    .menu-button {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 10px;
+      background: #69b6b1;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .menu-button:hover {
+      background: #c4e1de;
+    }
+    @media (max-width: 600px) {
+      .card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lista de Prospectos</h1>
+  </header>
+  <div class="card-container">
+    <!-- Ejemplo de Prospecto 1 -->
+    <div class="card">
+      <h3>Juan Pérez</h3>
+      <p><strong>Nombre y Apellido / Razón Social:</strong> N/A</p>
+      <p><strong>Nombre Fantasía:</strong> N/A</p>
+      <p><strong>Teléfono Fijo:</strong> 123456789</p>
+      <p><strong>Teléfono Móvil:</strong> 123456789</p>
+      <p><strong>Dirección:</strong> direccion 1</p>
+      <p><strong>Localidad:</strong> localidad 1</p>
+      <p><strong>Email:</strong> juan@example.com</p>
+      <div class="actions">
+        <button onclick="editarProspecto()">Editar</button>
+      </div>
+    </div>
+    <!-- Ejemplo de Prospecto 2 -->
+    <div class="card">
+      <h3>María López</h3>
+      <p><strong>Nombre y Apellido / Razón Social:</strong> N/A</p>
+      <p><strong>Nombre Fantasía:</strong> MLO</p>
+      <p><strong>Teléfono Fijo:</strong> 123456789</p>
+      <p><strong>Teléfono Móvil:</strong> 987654321</p>
+      <p><strong>Dirección:</strong> direccion 2</p>
+      <p><strong>Localidad:</strong> localidad 2</p>
+      <p><strong>Email:</strong> maria@example.com</p>
+      <div class="actions">
+        <button onclick="editarProspecto()">Editar</button>
+      </div>
+    </div>
+    <!-- Más tarjetas de prospectos -->
+    <div class="card">
+        <h3>Cristian Pérez</h3>
+        <p><strong>Nombre y Apellido / Razón Social:</strong> N/A</p>
+        <p><strong>Nombre Fantasía:</strong> CRP</p>
+        <p><strong>Teléfono Fijo:</strong> 123456789</p>
+        <p><strong>Teléfono Móvil:</strong> 997454377</p>
+        <p><strong>Dirección:</strong> direccion 3</p>
+      <p><strong>Localidad:</strong> localidad 3</p>
+        <p><strong>Email:</strong> cristian@example.com</p>
+        <div class="actions">
+          <button onclick="editarProspecto()">Editar</button>
+        </div>
+      </div>
+  </div>
+  <a class="menu-button" href="./alta_prospectos.html">Nuevo Prospecto</a>
+  <a class="menu-button" href="./inicial.html">Volver al Menú Inicial</a>
+  
+  <script>
+    function editarProspecto(){
+      alert("Editar Prospecto");
+    }
+  </script>
+</body>
+</html>
