@@ -4,135 +4,128 @@
   <meta charset="UTF-8">
   <title>Lista de Prospectos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
       background: #f2f2f2;
       padding: 20px;
-      margin: 0;
     }
-    header {
+    .header {
+      margin-bottom: 20px;
       text-align: center;
+    }
+    .search-bar {
       margin-bottom: 20px;
     }
-    .card-container {
+    .action-buttons {
+      margin-top: 20px;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 15px;
-      width: 100%;
-      max-width: 300px;
-      display: flex;
-      flex-direction: column;
-    }
-    .card h3 {
-      margin-top: 0;
-    }
-    .card p {
-      margin: 5px 0;
-      font-size: 14px;
-    }
-    .card .actions {
-      margin-top: auto;
-      display: flex;
       gap: 10px;
-      flex-wrap: wrap;
-    }
-    .card .actions button {
-      flex: 1;
-      padding: 8px;
-      border: none;
-      border-radius: 4px;
-      background: #89c5c0;
-      color: #fff;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .card .actions button:hover {
-      background: #c4e1de;
-    }
-    .menu-button {
-      display: block;
-      width: 200px;
-      margin: 20px auto;
-      padding: 10px;
-      background: #69b6b1;
-      color: #fff;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    .menu-button:hover {
-      background: #c4e1de;
-    }
-    @media (max-width: 600px) {
-      .card {
-        max-width: 100%;
-      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Lista de Prospectos</h1>
-  </header>
-  <div class="card-container">
-    <!-- Ejemplo de Prospecto 1 -->
-    <div class="card">
-      <h3>Juan Pérez</h3>
-      <p><strong>Nombre y Apellido / Razón Social:</strong> N/A</p>
-      <p><strong>Nombre Fantasía:</strong> N/A</p>
-      <p><strong>Teléfono Fijo:</strong> 123456789</p>
-      <p><strong>Teléfono Móvil:</strong> 123456789</p>
-      <p><strong>Dirección:</strong> direccion 1</p>
-      <p><strong>Localidad:</strong> localidad 1</p>
-      <p><strong>Email:</strong> juan@example.com</p>
-      <div class="actions">
-        <button onclick="editarProspecto()">Editar</button>
+  <div class="container">
+    <header class="header">
+      <h1>Lista de Prospectos</h1>
+    </header>
+    
+    <!-- Barra de búsqueda -->
+    <div class="row search-bar">
+      <div class="col-md-12">
+        <input type="text" id="searchInput" class="form-control" placeholder="Buscar prospectos...">
       </div>
     </div>
-    <!-- Ejemplo de Prospecto 2 -->
-    <div class="card">
-      <h3>María López</h3>
-      <p><strong>Nombre y Apellido / Razón Social:</strong> N/A</p>
-      <p><strong>Nombre Fantasía:</strong> MLO</p>
-      <p><strong>Teléfono Fijo:</strong> 123456789</p>
-      <p><strong>Teléfono Móvil:</strong> 987654321</p>
-      <p><strong>Dirección:</strong> direccion 2</p>
-      <p><strong>Localidad:</strong> localidad 2</p>
-      <p><strong>Email:</strong> maria@example.com</p>
-      <div class="actions">
-        <button onclick="editarProspecto()">Editar</button>
-      </div>
+    
+    <!-- Tabla Responsive -->
+    <div class="table-responsive">
+      <table class="table table-striped" id="prospectsTable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Nombre y Apellido / Razón Social</th>
+            <th>Nombre Fantasía</th>
+            <th>Teléfono Fijo</th>
+            <th>Teléfono Móvil</th>
+            <th>Dirección</th>
+            <th>Localidad</th>
+            <th>Email</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Prospecto 1 -->
+          <tr>
+            <td>Juan Pérez</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>123456789</td>
+            <td>123456789</td>
+            <td>direccion 1</td>
+            <td>localidad 1</td>
+            <td>juan@example.com</td>
+            <td>
+              <button class="btn btn-sm btn-secondary" onclick="editarProspecto()">Editar</button>
+            </td>
+          </tr>
+          <!-- Prospecto 2 -->
+          <tr>
+            <td>María López</td>
+            <td>N/A</td>
+            <td>MLO</td>
+            <td>123456789</td>
+            <td>987654321</td>
+            <td>direccion 2</td>
+            <td>localidad 2</td>
+            <td>maria@example.com</td>
+            <td>
+              <button class="btn btn-sm btn-secondary" onclick="editarProspecto()">Editar</button>
+            </td>
+          </tr>
+          <!-- Prospecto 3 -->
+          <tr>
+            <td>Cristian Pérez</td>
+            <td>N/A</td>
+            <td>CRP</td>
+            <td>123456789</td>
+            <td>997454377</td>
+            <td>direccion 3</td>
+            <td>localidad 3</td>
+            <td>cristian@example.com</td>
+            <td>
+              <button class="btn btn-sm btn-secondary" onclick="editarProspecto()">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <!-- Más tarjetas de prospectos -->
-    <div class="card">
-        <h3>Cristian Pérez</h3>
-        <p><strong>Nombre y Apellido / Razón Social:</strong> N/A</p>
-        <p><strong>Nombre Fantasía:</strong> CRP</p>
-        <p><strong>Teléfono Fijo:</strong> 123456789</p>
-        <p><strong>Teléfono Móvil:</strong> 997454377</p>
-        <p><strong>Dirección:</strong> direccion 3</p>
-      <p><strong>Localidad:</strong> localidad 3</p>
-        <p><strong>Email:</strong> cristian@example.com</p>
-        <div class="actions">
-          <button onclick="editarProspecto()">Editar</button>
-        </div>
-      </div>
+    
+    <!-- Botones de acción -->
+    <div class="action-buttons">
+      <a class="btn btn-primary" href="./alta_prospectos.html" style="background-color: #69b6b1 !important;">Nuevo Prospecto</a>
+      <a class="btn btn-secondary" href="./inicial.html" style="background-color: #69b6b1 !important;">Volver al Menú Inicial</a>
+    </div>
   </div>
-  <a class="menu-button" href="./alta_prospectos.html">Nuevo Prospecto</a>
-  <a class="menu-button" href="./inicial.html">Volver al Menú Inicial</a>
   
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     function editarProspecto(){
       alert("Editar Prospecto");
     }
+    
+    // Función para filtrar la tabla según la búsqueda
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+      let filter = this.value.toLowerCase();
+      let rows = document.querySelectorAll('#prospectsTable tbody tr');
+      
+      rows.forEach(row => {
+        let text = row.textContent.toLowerCase();
+        row.style.display = text.includes(filter) ? '' : 'none';
+      });
+    });
   </script>
 </body>
 </html>
