@@ -84,7 +84,7 @@
   <div class="report-container" id="report">
     <!-- Encabezado del Reporte -->
     <div class="header">
-      <img src="./QOR.png" alt="Logo de la Empresa">
+      <img src="https://via.placeholder.com/150" alt="Logo de la Empresa">
       <h1>Reporte de Presupuesto</h1>
       <p><strong>Empresa XYZ</strong> - Calle Falsa 123, Ciudad, País</p>
       <p>Tel: (123) 456-7890 | Email: info@empresa.xyz</p>
@@ -101,6 +101,7 @@
         <select id="monedaSelect" class="currency-select">
           <option value="ARS">Pesos (ARS)</option>
           <option value="USD">Dólares (USD)</option>
+          <option value="AMBOS">Pesos y Dólares</option>
         </select>
       </p>
     </div>
@@ -194,15 +195,24 @@
     // Factor de conversión (ejemplo: 1 USD = 100 ARS)
     const conversionRate = 100;
     
+    // Función para formatear el importe final según la moneda seleccionada
+    function formatearImporte(importeARS, moneda) {
+      if (moneda === "ARS") {
+        return "$ " + importeARS;
+      } else if (moneda === "USD") {
+        return "US$ " + (importeARS / conversionRate).toFixed(2);
+      } else if (moneda === "AMBOS") {
+        return "$ " + importeARS + " / US$ " + (importeARS / conversionRate).toFixed(2);
+      }
+    }
+    
     // Función para renderizar la tabla de parámetros globales
     function renderGlobalParamsTable() {
       const moneda = document.getElementById("monedaSelect").value;
       const tbody = document.querySelector("#globalParamsTable tbody");
       tbody.innerHTML = "";
       
-      const importeFinal = (moneda === "ARS")
-        ? globalParamsExample.importeFinalARS
-        : (globalParamsExample.importeFinalARS / conversionRate).toFixed(2);
+      const importeFinal = formatearImporte(globalParamsExample.importeFinalARS, moneda);
       
       const tr = document.createElement("tr");
       tr.innerHTML = `
@@ -211,7 +221,7 @@
         <td>${globalParamsExample.tipoVidrio}</td>
         <td>${globalParamsExample.instalacion}</td>
         <td>${globalParamsExample.tipoProducto}</td>
-        <td>${moneda === "ARS" ? "$" : "US$"} ${importeFinal}</td>
+        <td>${importeFinal}</td>
       `;
       tbody.appendChild(tr);
     }
@@ -223,15 +233,15 @@
       tbody.innerHTML = "";
       
       sectoresData.forEach(sector => {
+        const importeFinal = formatearImporte(sector.importeFinalARS, moneda);
         const tr = document.createElement("tr");
-        const importeFinal = (moneda === "ARS") ? sector.importeFinalARS : (sector.importeFinalARS / conversionRate).toFixed(2);
         tr.innerHTML = `
           <td>${sector.id}</td>
           <td>${sector.descripcion}</td>
           <td>${sector.tipoVidrio}</td>
           <td>${sector.instalacion}</td>
           <td>${sector.tipoProducto}</td>
-          <td>${moneda === "ARS" ? "$" : "US$"} ${importeFinal}</td>
+          <td>${importeFinal}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -247,7 +257,7 @@
     renderGlobalParamsTable();
     renderSectoresTable();
     
-    // Función para simular la exportación a PDF (utilizando la función de impresión del navegador)
+    // Función para simular la exportación a PDF (usando window.print)
     function exportToPDF() {
       window.print();
     }
